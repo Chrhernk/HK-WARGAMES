@@ -180,10 +180,74 @@ int main()
 
 		}
 	} while (AI_Linear_Current_Location_Prediction != actualTargetlocation);
+
 	//**********************linear AI search algorythum found target**********************************************
 
 
+
+
+	
+	cout << "\n\n Launch the Random Search Engine\n\n";
+
+
+
+		system("Pause");
+	do
+
+		//*********************Random AI Search ********************************************************************
+	{
+		//this is where the AI makes a target Guess
+
+		AI_Random_Current_Location_Prediction = rand() % ((AI_Random_searchGridHighNumber - AI_Random_searchGridLowNumber) / 2 + AI_Random_searchGridLowNumber);
+
+		
+		cout << "\n\n The AI guesses the target is at location : " << AI_Random_Current_Location_Prediction << "\n\n";;
+
+		cout << "\n\nThe real target is at : " << actualTargetlocation <<"\n\n";
+
+		
+		++AI_Random_Number_Of_Tries;
+
+		//adds a try to the counter
+		if (AI_Random_Current_Location_Prediction > actualTargetlocation)
+		{
+
+
+			cout << "The AI Prediction is too high!\n\n";
+
+			//AI_Random_searchGridHighNumber = AI_Random_Current_Location_Prediction - 1;
+
+		}
+
+		else if (AI_Random_Current_Location_Prediction < actualTargetlocation)
+		{
+
+			cout << "The Prediction was Too Low!!!\n\n";
+
+			//AI_Random_searchGridLowNumber = AI_Random_Current_Location_Prediction + 1;
+		}
+
+		else
+		{
+
+			cout << "\n Thats it!! you got The package back in " << AI_Random_Number_Of_Tries << " Guesses!!\n";
+
+		}
+	} while (AI_Random_Current_Location_Prediction != actualTargetlocation);
+	//**********************Random AI search algorythum tries to find target**********************************************
+
+	cout << "\n\nThe human got it in :" << Human_Number_Of_Tries << "\n\n";
+	cout << "\n\nThe Bianary got it in :" << AI_Bianary_Number_Of_Tries<< "\n\n";
+	cout << "\n\nThe Linear got it in : " << AI_Linear_Number_Of_Tries << " \n\n";
+	cout << "\n\nThe Random got it in : " << AI_Random_Number_Of_Tries << "\n\n";
+
+
+	
 	return 0;
+
+
+	
+	
 }
 //game loop
 
